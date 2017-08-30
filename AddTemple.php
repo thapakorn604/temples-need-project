@@ -139,14 +139,14 @@
   <div class="row" style="background-color: rgba(0, 0, 0, 0.65); border-radius: 5px; padding: 2%;">
     <div class="col-sm-12 col-md-12 col-xs-12">
 
-      <form action="backend/setTemple.php" method="POST" class="form-horizontal ">
+      <form action="backend/setTemple.php" method="POST" class="form-horizontal" enctype="multipart/form-data">
         <div class="form-group">
           <label for="nameTemple" class="whiteLabel col-sm-2 control-label">ชื่อวัด:</label>
           <div class="col-sm-8">
             <input class="form-control" type="text" id="nameTemple" name="nameTemple" placeholder="ชื่อวัดภาษาไทย">
           </div>
         </div>
-      
+
         <div class="form-group">
             <label for="city" class="whiteLabel col-sm-2 control-label">ข้อมูลวัด:</label>
             <div class="col-sm-8">
@@ -171,7 +171,7 @@
           <div class="form-group">
             <label class="whiteLabel col-sm-2 control-label">อัพโหลดรูป:</label>
             <div class="col-sm-8">
-                <input class="form-control" type="file" class="btn btn-default" id="InputFile">
+                <input class="form-control" type="file"  accept="image/tiff,image/jpeg,image/gif,image/x-png,image/x-MS-bmp "class="btn btn-default" id="image" name="image">
             </div>
         </div>
 

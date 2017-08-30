@@ -10,7 +10,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style type="text/css">
-  
+
 .scale-up{
   width: 100%;
 }
@@ -48,15 +48,15 @@ img.phone{
 </head>
 
 <body>
-   <div class="container-fluid" style="background-color: rgba(255, 255, 255, 0.75)"> 
-      
+   <div class="container-fluid" style="background-color: rgba(255, 255, 255, 0.75)">
+
 
 
 
       <div class="row">
 
         <div class="col-xs-3 col-sm-1 col-md-3 nopadding">
-          <button class="btn setmargin" onClick="history.go(-1);return true;">< กลับ</button>           
+          <button class="btn setmargin" onClick="history.go(-1);return true;">< กลับ</button>
         </div>
       </div>
 
@@ -69,31 +69,31 @@ img.phone{
         ?>
         <br>
         <div class="col-xs-12 col-md-12 col-sm-12 nopadding">
-          <p style="font-size: 4.5vmax; line-height: 2;"> 
-            <?php 
+          <p style="font-size: 4.5vmax; line-height: 2;">
+            <?php
            			 $temple = $resultTemple-> fetch_assoc();
             		echo $temple["name"];
         		?>
           </p>
-          
+
         </div>
-        
-        
-        
+
+
+
 
       <div class="row">
 
         <div class="col-xs-12 col-sm-12 col-md-6 nopadding" style="padding-top: 2%">
-          <img class="img-responsive" src="image/temple1.jpg" alt="Temple" />
+          <img class="img-responsive" src="uploads/<?php echo $temple["image"]; ?>" alt="Temple" />
         </div>
-      
 
-    
+
+
 
         <div class="col-xs-12 col-sm-12 col-md-6" style="background-color: orange">
           <img class="phone" style="margin: 3px;" src="image/phone.png" alt="Temple" />
-        <span style="font-size: 2em"><?php echo $temple["tel"]; ?></span> 
-        
+        <span style="font-size: 2em"><?php echo $temple["tel"]; ?></span>
+
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-6 ">
@@ -102,9 +102,9 @@ img.phone{
           <div class="col-md-12" style="border-bottom: solid 1px;">     </div>
           <br>
           <?php
-    
+
             $resultNeed= $mysqli->query("SELECT * FROM temple_need where temple_id = '$search_id'");
-        
+
             while($data = $resultNeed->fetch_assoc()){
 
          ?>
@@ -121,10 +121,10 @@ img.phone{
           <span class="temple-needlist" style="color: red">ของที่วัดไม่ต้องการ</span>
           <div class="col-md-12" style="border-bottom: solid 1px;">     </div>
           <?php
-    
+
             $resultNoNeed= $mysqli->query("SELECT * FROM temple_no_need where temple_id = '$search_id'");
-      
-            while($data = $resultNoNeed->fetch_assoc()){ 
+
+            while($data = $resultNoNeed->fetch_assoc()){
 
     		  ?>
           <br>
@@ -140,7 +140,7 @@ img.phone{
                 ที่อยู่:
               </h4>
               <p>
-                <?php 
+                <?php
                   echo $temple["address"];
                 ?>
               </p>
@@ -148,7 +148,7 @@ img.phone{
                 รายละเอียด:
               </h4>
               <p>
-                <?php 
+                <?php
                   echo $temple["description"];
                 ?>
               </p>
@@ -160,7 +160,7 @@ img.phone{
       <div class="row">
         <div class="col-sm-12 col-xs-12 col-md-12 nopadding" style="background-color: rgba(0, 0, 0, 0.5)">
         <div class="col-md-12 nopadding" style="border-bottom: solid 2px;">     </div>
-        
+
 
              <!--<span style="font-size: 2em;color: white;">ติดต่อผู้ดูแลระบบ <a data-toggle="modal" data-target="#myModal">คลิ๊ก</a> </span>-->
 
@@ -195,7 +195,7 @@ img.phone{
                       <label for="comment">กรอกข้อมูล:</label>
                       <textarea class="form-control" rows="3" id="comment"></textarea>
                     </div>
-                    
+
                   </div>
                   <div class="modal-footer">
                   <input type="submit" class="btn btn-info" value="ส่ง" onclick="popUp()" data-dismiss="modal">
@@ -204,22 +204,22 @@ img.phone{
                 </div>
 
               </div>
-            </div> 
+            </div>
 
 
 
 
 
 
-          
+
         </div>
       </div>
   </div>
-  
 
-        
-  
-	
-  
+
+
+
+
+
 </body>
 </html>
