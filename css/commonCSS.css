@@ -1,0 +1,84 @@
+
+body{
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size:cover;
+  background-size: cover;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+#custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 23px;
+}
+
+.dropbtn {
+    margin-top: 5px;
+    background-color: white
+    color: white;
+    min-width: 40px;
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: darkgoldenrod;
+    color: white;
+}
+
+.dropdown {
+    float: right;
+    display: block;
+    
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: none;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: goldenrod;
+    text-decoration: none;
+    display: block;
+    padding: 2px;
+}
+
+.dropdown a:hover {background-color: #f1f1f1}
+#qr>img{
+    width: 30%;
+    height: 30%;
+}
