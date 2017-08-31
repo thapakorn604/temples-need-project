@@ -22,7 +22,7 @@
 			if($account["role"] === "admin"){
 				echo "<script>location.href='../TempleAdmin.php'</script>";
 			} else {
-				echo "<script>location.href='../Monk.php'</script>";
+				echo "<script>location.href='../User.php'</script>";
 			}
 			$_SESSION["login_user"] = $username;
 			$_SESSION["login_user_id"] = $account["id"];
@@ -31,11 +31,11 @@
 		}
 		else{
 			echo "<script>alert('username or password is incorrect');</script>";
-			echo "<script>location.href='../Login.php'</script>";
+			echo "<script>location.href='../login.php'</script>";
 		}
 	}else{
 		echo "<script>alert('username or password is incorrect');</script>";
-		echo "<script>location.href='../Login.php'</script>";
+		echo "<script>location.href='../login.php'</script>";
 	}
 
 

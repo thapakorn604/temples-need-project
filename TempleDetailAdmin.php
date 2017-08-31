@@ -5,7 +5,7 @@
     if($_SESSION["login_user"] === null) {
         echo "<script>alert('You must login first!');</script>";
         echo "<script>location.href='./Login.php'</script>";
-    } else if($_SESSION["login_user_role"] === "admin") {
+    } else {
 
 ?>
 
@@ -13,106 +13,52 @@
 <html lang="en">
 
 <head>
-    <title>Admin operations</title>
+
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/Forgetpassword-Style.css" type="text/css">
-    <link rel="stylesheet" href="css/commonCSS.css" type="text/css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('[data-toggle="popover"]').popover();
-        });
-    </script>
-    <style type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        .table {
-            border-radius: 5px;
-            width: 50%;
-            margin: 0px auto;
-            float: none;
+    <title>Help Temple</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/agency.min.css" rel="stylesheet">
+    <link href="css/mystyles.css" rel="stylesheet">
+
+    <style>
+        ul.v_menu {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            background-color: #f1f1f1;
         }
 
-        .setmargin {
-            margin-left: 0px;
-            background-color: black;
+        li.v_menu>a {
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+
+        /* Change the link color on hover */
+
+        li.v_menu>a:hover {
+            background-color: #fed136;
             color: white;
-            opacity: 0.8;
-            font-size: 1.5em;
-            margin-bottom: 13px;
-            margin-top: 5px;
         }
-
-        .scale-up {
-            width: 100%;
-        }
-
-        .temple-image-frame {
-            position: relative;
-            width: 100%;
-        }
-
-        .temple-label {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            color: white;
-            font: bold 180% Sans-Serif;
-            letter-spacing: -1px;
-            background: rgb(0, 0, 0);
-            /* fallback color */
-            background: rgba(0, 0, 0, 0.1);
-            padding: 10px;
-            line-height: 80%;
-        }
-
-        span.province {
-            font-size: 60%;
-        }
-
-        .nopadding {
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-
-        input::-webkit-input-placeholder {
-            font-size: 1.8em;
-            line-height: 3;
-        }
-
-        ul.v_menu{ /* กำหนดขอบเขตของเมนู */
-            list-style:none;
-            margin:0px;
-            padding:0px;
-            width:180px;
-            font-family:tahoma, "Microsoft Sans Serif", Vanessa;
-            font-size:16px;
-            text-align: center;
-            
-        }
-ul.v_menu > li{ /* กำหนดรูปแบบให้กับเมนูเ */
-    display:block;
-    height:30px;
-    text-indent:5px;
-    background-color: rgba(0, 0, 0, 0.9);
-}
-ul.v_menu > li:hover{ /* กำหนดรูปแบบให้กับเมนูเมื่อมีเมาส์อยู่เหนือ */
-    display:block;
-    height:30px;
-    text-indent:5px;
-    background-color: #D6C221;
-}
-ul.v_menu > li > a{ /* กำหนดรูปแบบให้กับลิ้งค์ */
-    text-decoration:none;
-    color:#FFFFFF;
-    line-height:20px;
-}
-
     </style>
-
     <script>
 
         var selectedId;
@@ -120,8 +66,10 @@ ul.v_menu > li > a{ /* กำหนดรูปแบบให้กับลิ
 
         function delete_temple(id) {
             var r = confirm("ยืนยัน?");
-            if(r === true){               
+            if(r === true){
+
                 location.href='backend/deleteTemple.php?id='+ id;
+
             }
         }
 
@@ -156,223 +104,306 @@ ul.v_menu > li > a{ /* กำหนดรูปแบบให้กับลิ
 
     </script>
 
-
-
-
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript">
-$(function(){
-    $(".b_icon").each(function(j,k){
-        var top_p=(50*j)+"px";  /*  50 คือความสูงเมนูด้านซ้าย */
-        var top_p2="-"+(50*j)+"px";  /*  50 คือความสูงเมนูด้านซ้าย */
-        $(this).css("top",top_p);
-        $(this).find("li.vertical_detail_show").css("top",top_p2);
-    });
-    $("li.b_icon a").click(function(){
-        if($(this).parent("li").hasClass("b_icon")==true){
-            $("li.vertical_detail_show").hide();
-            $(this).parent("li").find("li.vertical_detail_show").show();
-        }
-    });
-});
-</script>
-
-
 </head>
 
-<body>
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="./index.php">
+                Help Temples
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#contact">ติดต่อเรา</a>
+                    </li>
+                    <?php
+                        if($_SESSION["login_user"] == null){
+                    ?>
+
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="./login.php">เข้าสู่ระบบ</a>
+                    </li>
+                    <?php
+
+                        } else {
+
+                            if($_SESSION["login_user_role"] == 'admin'){
+
+                     ?>
+                                <li class="nav-item">
+                                    <a class="nav-link js-scroll-trigger" href = "TempleAdmin.php"><?php echo "สวัสดี ".$_SESSION["login_user"]; ?></a>
+                                </li>
+
+                    <?php
+
+                            } else {
+
+                    ?>
+                                <li class="nav-item">
+                                    <a class="nav-link js-scroll-trigger" href = "User.php"><?php echo "สวัสดี ".$_SESSION["login_user"]; ?></a>
+                                </li>
 
 
+                    <?php
 
+                            }
 
-    <div class="row" style="background-color: rgba(0, 0, 0, 0.9); padding: 0.5%;">
-        <div class="col-md-2 col-xs-2 col-sm-2">
-            <button class="btn setmargin" onClick="location.href = './index.php';">< หน้าแรก</button>
+                    ?>
+
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href = "backend/logout.php"><?php echo "ออกจากระบบ" ?></a>
+                        </li>
+
+                    <?php
+
+                        }
+
+                    ?>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="masthead">
+
+        <div class="intro-text">
         </div>
 
-        <div class="col-md-8 col-xs-8 col-sm-8" style="margin-top: 3px">
 
-            </div>
-            <div class="col-md-2 col-xs-2 col-sm-2">
-                <button class="btn setmargin" onClick="location.href = 'backend/logout.php';"> Logout</button>
-            </div>
+    </header>
 
-    </div>
-
-    <ul class="v_menu" style="background: rgba(0, 0, 0, 0.1);">
-      <li><a href="TempleAdmin.php">รายชื่อวัด</a></li>
-      <li><a href="UserAdmin.php">รายชื่อผู้ใช้</a></li>
-    </ul>
-
-
+    <!-- Services -->
+    <section id="register">
         <div class="container">
-            <div class="col-sm-12 col-md-12 col-xs-12">
-                <div class="row table-responsive" style="left:30%; right:30%; background-color: rgba(0, 0, 0, 0.65); border-radius: 5px; padding: 2%;">
-                        <table class="table table-condensed" style="color: #E1E1E1;">
+
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">รายชื่อวัด</h2>
+                    <h3 class="section-subheading text-muted">&nbsp;</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3 col-md-3 col-xs-3">
+                    <ul class="v_menu">
+                        <li class="v_menu"><a href="TempleAdmin.php">รายชื่อวัด</a></li>
+                        <li class="v_menu"><a href="UserAdmin.php">รายชื่อผู้ใช้</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-6 col-xs-6">
+
+                    <table class="table table-condensed">
+
+                        <?php
+
+                            //query temple
+
+                            $search_id = $_GET["id"];
+                            require_once("backend/mysql.php");
+                            $resultTemple = $mysqli->
+                                            query("SELECT * FROM temple where temple_id = '$search_id'");
+
+                            $temple = $resultTemple-> fetch_assoc();
+
+
+                            // querymonk
+
+                            $queryMonk = $mysqli->query("SELECT * FROM temple_monk where temple_id = '$search_id'");
+                            $dataMonk = $queryMonk -> fetch_assoc();
+                            $monkId = $dataMonk["user_id"];
+                            $queryMonk2 = $mysqli->query("SELECT * FROM account WHERE id = $monkId");
+                            $resultMonk = $queryMonk2-> fetch_assoc();
+
+                            //query item
+                            $queryItemNeed = $mysqli->query("SELECT * FROM temple_need where temple_id = '$search_id'");
+                            $dataItem = $queryItemNeed-> fetch_assoc();
+                            $itemNeed = $dataItem["item_need"];
+
+                            $queryItemNoNeed = $mysqli->query("SELECT * FROM temple_no_need where temple_id = '$search_id'");
+                            $dataItem2 = $queryItemNoNeed-> fetch_assoc();
+                            $itemNoNeed = $dataItem2["item_no_need"];
+
+
+                        ?>
+
+
+                        <tbody>
+
+                            <tr>
+                                <th>ชื่อวัด</th>
+                                <td> <?php echo $temple["name"]; ?> </td>
+                            </tr>
+                            <tr>
+                                <th>ที่อยู่</th>
+                                <td>
+                                    <?php echo $temple["address"]; ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>โทรศัพท์</th>
+                                <td>
+                                    <?php echo $temple["tel"]; ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>รายละเอียด</th>
+                                <td>
+                                    <?php echo $temple["description"]; ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>ผู้ดูแล</th>
+                                <td>
+                                    <?php echo $resultMonk["username"]; ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>สิ่งที่ต้องการ</th>
+                                <td>
+                                    <?php echo $itemNeed; ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>สิ่งที่ไม่ต้องการ</th>
+                                <td>
+                                    <?php echo $itemNoNeed; ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <td>
+                                    <button class="btn btn-warning" onclick="editTemple(<?php echo $search_id; ?>)"> Edit </button>
+                                    <button class="btn btn-danger" onclick="delete_temple(<?php echo $search_id; ?>)"> Delete </button>
+                                </td>
+                            </tr>
 
                             <?php
-
-                                //query temple
-
-                                $search_id = $_GET["id"];
-                                require_once("backend/mysql.php");
-                                $resultTemple = $mysqli->
-        					                    query("SELECT * FROM temple where temple_id = '$search_id'");
-
-                                $temple = $resultTemple-> fetch_assoc();
-
-
-                                // querymonk
-
-                                $queryMonk = $mysqli->query("SELECT * FROM temple_monk where temple_id = '$search_id'");
-                                $dataMonk = $queryMonk -> fetch_assoc();
-                                $monkId = $dataMonk["user_id"];
-                                $queryMonk2 = $mysqli->query("SELECT * FROM account WHERE id = $monkId");
-                                $resultMonk = $queryMonk2-> fetch_assoc();
-
-
+                                }
                             ?>
 
 
-                            <tbody id="parent">
-
-                                <tr id="t1">
-                                    <th>ชื่อวัด</th>
-                                    <td id="t2"> <?php echo $temple["name"]; ?> </td>
-                                </tr>
-                                <tr id="t1">
-                                    <th>ที่อยู่</th>
-                                    <td id="t2">
-                                        <?php echo $temple["address"]; ?>
-                                    </td>
-                                </tr>
-                                <tr id="t1">
-                                    <th>โทรศัพท์</th>
-                                    <td id="t2">
-                                        <?php echo $temple["tel"]; ?>
-                                    </td>
-                                </tr>
-                                <tr id="t1">
-                                    <th>รายละเอียด</th>
-                                    <td id="t2">
-                                        <?php echo $temple["description"]; ?>
-                                    </td>
-                                </tr>
-                                <tr id="t1">
-                                    <th>ผู้ดูแล</th>
-                                    <td id="t2">
-                                        <?php echo $resultMonk["username"]; ?>
-                                    </td>
-                                </tr>
-                                <tr id="t1">
-                                    <th></th>
-                                    <td id="t2">
-                                        <button class="btn btn-warning" onclick="editTemple(<?php echo $search_id; ?>)"> Edit </button>
-                                        <button class="btn btn-danger" onclick="delete_temple(<?php echo $search_id; ?>)"> Delete </button>
-                                    </td>
-                                </tr>
-
-                            </tbody>
+                        </tbody>
 
 
-                        </table>
+                    </table>
 
+                </div>
+                <div class="col-sm-3 col-md-3 col-xs-3"></div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">ติดต่อเรา</h2>
+                    <h3 class="section-subheading text-white">นาย มยุรี พรหมจารีย์วินาศ</h3>
+                </div>
+            </div>
+            <div class="row text-center" style="color: #D4B126">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary2"></i>
+                       	<i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading text-primary2">Tel.</h4>
+                    <p class="text-white">08x-xxx-xxxx</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary2"></i>
+                       	<i class="fa fa-map-marker fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading text-primary2">Location</h4>
+                    <p class="text-white">CAMT</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary2"></i>
+                       	<i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading text-primary2">Email</h4>
+                    <p class="text-white">m.pattrakorn@gmail.com</p>
                 </div>
             </div>
         </div>
+    </section>
 
-
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">สอบถาม</h4>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Your Website 2017</span>
                 </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" class="form-control" id="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">เบอร์โทร:</label>
-                        <input type="text" class="form-control" id="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="sel1">เลือกหัวข้อ:</label>
-                        <select class="form-control" id="sel1">
-                          <option>สอบถามข้อมูลทั่วไป</option>
-                          <option>ติดต่อปัญหาการใช้งาน</option>
-                          <option>รายงานข้อมูลผิดพลาด</option>
-                          <option>ติดต่อสอบถามข้อมูลอื่นๆ</option>
-                        </select>
-
-                        <label for="comment">กรอกข้อมูล:</label>
-                        <textarea class="form-control" rows="3" id="comment"></textarea>
-                    </div>
-
+                <div class="col-md-4">
+                    <!--<ul class="list-inline social-buttons">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        </li>
+                    </ul>-->
+                    <!---
                 </div>
-                <div class="modal-footer">
-                    <input type="submit" class="btn btn-info" value="ส่ง" onclick="popUp()" data-dismiss="modal">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-
-
-
-    <!-- Edit temple-->
-    <div id="edittemple" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">เลือก</h4>
-                </div>
-                <div class="modal-body">
-                    <?php
-                    
-                    ?>
-                    <button type="button" class="btn btn-default" style="width: 100%; margin-bottom: 10px" onClick="editTemple()" >แก้ไขวัด</button>
-                    <button type="button" class="btn btn-default" style="width: 100%; margin-bottom: 10px" onclick="delete_temple()">ลบวัด</button>
-
-                </div>
-                <div class="modal-footer">
-
-                    <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li class="list-inline-item">
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-
         </div>
-    </div>
+    </footer>
 
 
-    
-    <script>
-        function addtemple() {
-            var name = document.getElementById("name").value;
-            var list = document.getElementById("parent");
-            var li1 = document.createElement("t1");
-            li1.appendChild(document.createTextNode(name));
-            li1.setAttribute("id", "t1-1");
-            list.appendChild(li1);
-        }
-    </script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/agency.min.js"></script>
+
+
 </body>
 
 </html>
-
-<?php
-    } else {
-        echo "<script>alert('You are not authorized!');</script>";
-        echo "<script>location.href='./index.php'</script>";
-    }
-?>
