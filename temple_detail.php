@@ -152,9 +152,9 @@
                         $itemNoNeed = $dataItem2["item_no_need"];
                     ?>
 
-                        
+
                     <img class="img-responsive templeImg" src="uploads/<?php echo $temple["image"]; ?>" alt="Temple" />
-                    
+
                     <table class="table table-condensed">
 
                         <tr>
@@ -247,7 +247,7 @@
                        	<i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading text-primary2">Email</h4>
-                    <p class="text-white">m.pattrakorn@gmail.com</p>
+                    <p class="text-white"><a href="mailto:someone@example.com" target="_top">someone@example.com</a></p>
                 </div>
             </div>
         </div>

@@ -11,6 +11,7 @@
     $noitem1 = $_POST["noitem1"];
     // $noitem2 = $_POST["noitem2"];
 
+    
     $image_name = $_FILES["image"]["name"];
     $target_dir = "../uploads/";
     $target_file = $target_dir . basename($_FILES["image"]["name"]);

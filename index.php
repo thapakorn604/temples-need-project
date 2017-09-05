@@ -190,12 +190,11 @@
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary2"></i>
-                       	<a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">
                            <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
                         </a>
                     </span>
                     <h4 class="service-heading text-primary2">Email</h4>
-                    <p class="text-white">someone@gmail.com</p>
+                    <p class="text-white"><a href="mailto:someone@example.com" target="_top">someone@example.com</a></p>
                 </div>
             </div>
         </div>

@@ -126,8 +126,6 @@
                 <div class="col-sm-3 col-md-3 col-xs-3"></div>
                 <div class="col-sm-6 col-md-6 col-xs-6">
 
-                    <form action="backend/editTemple-process.php" method="POST">
-
                         <?php
 
                             require_once("backend/mysql.php");
@@ -143,6 +141,7 @@
                             $tel = $data["tel"];
                             $address = $data["address"];
                             $description = $data["description"];
+                            $image = $data["image"];
 
                             // get need item
                             $itemNeed = $mysqli->
@@ -159,6 +158,8 @@
 
 
                         ?>
+
+                      <form action="backend/editTemple-process.php" method="POST" enctype="multipart/form-data">
 
                         <div class="form-group">
                             <label>ชื่อวัด:</label>
@@ -179,11 +180,10 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="email">รูปภาพ:</label>
-                            <input class="form-control" type="file" class="btn btn-default" id="InputFile">
+                            <label for="email">รูปภาพ: <?php echo $image ?></label>
+                            <input class="form-control" type="file"  accept="image/tiff,image/jpeg,image/gif,image/x-png,image/x-MS-bmp "class="btn btn-default" id="image" name="image">
+                            <p>หากต้องการเปลี่ยนรูปสามารถอัพโหลดได้เลย</p>
                         </div>
-
-
                         <div class="form-group">
                             <label>สิ่งที่วัดต้องการ:</label>
                             <input class="form-control" type="text" name="item1" value="<?php echo $need; ?>">
@@ -198,7 +198,6 @@
                         <div class="form-group">
                             <br>
                             <button onClick="history.go(-1);return true;" class="btn btn-default" style="width: 100%;" >ยกเลิก</button>
-
                             <button type="submit" class="btn btn-primary" style="width: 100%">แก้ไข</button>
                         </div>
                     </form>
@@ -246,7 +245,7 @@
                        	<i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading text-primary2">Email</h4>
-                    <p class="text-white">m.pattrakorn@gmail.com</p>
+                    <p class="text-white"><a href="mailto:someone@example.com" target="_top">someone@example.com</a></p>
                 </div>
             </div>
         </div>
