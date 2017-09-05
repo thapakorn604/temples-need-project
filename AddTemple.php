@@ -81,7 +81,7 @@
                     <form action="backend/setTemple.php" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label>ชื่อวัด:</label>
-                            <input class="form-control" type="text" id="nameTemple" name="nameTemple" placeholder="ชื่อวัดภาษาไทย">
+                            <input class="form-control" type="text" id="nameTemple" name="nameTemple" placeholder="ชื่อวัดภาษาไทย" required>
                         </div>
                         <div class="form-group">
                             <label>ข้อมูลวัด:</label>
@@ -89,12 +89,12 @@
                         </div>
                         <div class="form-group">
                             <label>เบอร์โทร:</label>
-                            <input class="form-control" type="text" id="phone" name="phone" placeholder="053-XXX-XXXX">
+                            <input class="form-control" type="text" id="phone" name="phone" placeholder="053-XXX-XXXX" required>
                         </div>
 
                         <div class="form-group">
                             <label for="email">ที่อยู่:</label>
-                            <input class="form-control" type="text" id="address" name="address" placeholder="ที่อยู่ของวัด">
+                            <input class="form-control" type="text" id="address" name="address" placeholder="ที่อยู่ของวัด" required>
                         </div>
 
                         <div class="form-group">
@@ -104,11 +104,11 @@
 
                         <div class="form-group">
                             <label>สิ่งที่วัดต้องการ:</label>
-                            <input class="form-control" type="text" id="item1" name="item1" placeholder="e.g. น้ำ, ขนม, เงิน">
+                            <input class="form-control" type="text" id="item1" name="item1" placeholder="e.g. น้ำ, ขนม, เงิน" required>
                         </div>
                         <div class="form-group">
                             <label>สิ่งที่วัดไม่ต้องการ:</label>
-                            <input class="form-control" type="text" id="noitem1" name="noitem1" placeholder="e.g. สบู่, แชมพู, ยาสีฟัน">
+                            <input class="form-control" type="text" id="noitem1" name="noitem1" placeholder="e.g. สบู่, แชมพู, ยาสีฟัน" required>
                         </div>
 
                         <div class="form-group">

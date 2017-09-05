@@ -261,7 +261,7 @@
                                 <td></td>
                                 <td>
                                     <button class="btn btn-default" onclick="editTemple(<?php echo $templeId; ?>)"> Edit </button>
-                                    <button class="btn btn-danger" onclick="delete_temple(<?php echo $templeId; ?>)"> Delete </button>
+                                    <button class="btn btn-danger" onclick="deleteTemple(<?php echo $templeId; ?>)"> Delete </button>
                                 </td>
                             </tr>
 

@@ -31,6 +31,13 @@
     <link href="css/mystyles.css" rel="stylesheet">
 
 </head>
+<style>
+    .templeImg {
+        width: 100%;
+        border-radius: 10px;
+        padding: 10px;
+    }
+</style>
 
 <body id="page-top">
 
@@ -119,36 +126,36 @@
             <div class="row">
                 <div class="col-sm-2 col-md-2 col-xs-2"></div>
                 <div class="col-sm-8 col-md-8 col-xs-8">
+
+                    <?php
+
+                        $search_id = $_GET["id"];
+                        require_once("backend/mysql.php");
+                        $resultTemple = $mysqli->
+                                            query("SELECT * FROM temple where temple_id = '$search_id'");
+                        $temple = $resultTemple-> fetch_assoc();
+
+                        // querymonk
+                        $queryMonk = $mysqli->query("SELECT * FROM temple_monk where temple_id = '$search_id'");
+                        $dataMonk = $queryMonk -> fetch_assoc();
+                        $monkId = $dataMonk["user_id"];
+                        $queryMonk2 = $mysqli->query("SELECT * FROM account WHERE id = $monkId");
+                        $resultMonk = $queryMonk2-> fetch_assoc();
+
+                        //query item
+                        $queryItemNeed = $mysqli->query("SELECT * FROM temple_need where temple_id = '$search_id'");
+                        $dataItem = $queryItemNeed-> fetch_assoc();
+                        $itemNeed = $dataItem["item_need"];
+
+                        $queryItemNoNeed = $mysqli->query("SELECT * FROM temple_no_need where temple_id = '$search_id'");
+                        $dataItem2 = $queryItemNoNeed-> fetch_assoc();
+                        $itemNoNeed = $dataItem2["item_no_need"];
+                    ?>
+
+                        
+                    <img class="img-responsive templeImg" src="uploads/<?php echo $temple["image"]; ?>" alt="Temple" />
+                    
                     <table class="table table-condensed">
-
-                        <?php
-
-                            $search_id = $_GET["id"];
-                            require_once("backend/mysql.php");
-                            $resultTemple = $mysqli->
-                                                query("SELECT * FROM temple where temple_id = '$search_id'");
-                            $temple = $resultTemple-> fetch_assoc();
-
-                            // querymonk
-                            $queryMonk = $mysqli->query("SELECT * FROM temple_monk where temple_id = '$search_id'");
-                            $dataMonk = $queryMonk -> fetch_assoc();
-                            $monkId = $dataMonk["user_id"];
-                            $queryMonk2 = $mysqli->query("SELECT * FROM account WHERE id = $monkId");
-                            $resultMonk = $queryMonk2-> fetch_assoc();
-
-                            //query item
-                            $queryItemNeed = $mysqli->query("SELECT * FROM temple_need where temple_id = '$search_id'");
-                            $dataItem = $queryItemNeed-> fetch_assoc();
-                            $itemNeed = $dataItem["item_need"];
-
-                            $queryItemNoNeed = $mysqli->query("SELECT * FROM temple_no_need where temple_id = '$search_id'");
-                            $dataItem2 = $queryItemNoNeed-> fetch_assoc();
-                            $itemNoNeed = $dataItem2["item_no_need"];
-                        ?>
-
-
-                          <img class="img-responsive" src="uploads/<?php echo $temple["image"]; ?>" alt="Temple" />
-
 
                         <tr>
                             <th>ชื่อวัด</th>

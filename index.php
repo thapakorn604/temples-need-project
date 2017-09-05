@@ -104,8 +104,12 @@
     <header class="masthead">
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in">
-                    <img src="./img/logo.png" class="img-responsive center-block" alt="logo">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <img src="./img/logo.png" class="img-responsive center-block" style="width:100%" alt="logo">
+                    </div>
+                    <div class="col-md-2"></div>
                 </div>
                 <div class="intro-lead-in">
                     Welcome to our donation site
@@ -186,10 +190,12 @@
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fa fa-circle fa-stack-2x text-primary2"></i>
-                       	<i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                       	<a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">
+                           <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                        </a>
                     </span>
                     <h4 class="service-heading text-primary2">Email</h4>
-                    <p class="text-white">m.pattrakorn@gmail.com</p>
+                    <p class="text-white">someone@gmail.com</p>
                 </div>
             </div>
         </div>
