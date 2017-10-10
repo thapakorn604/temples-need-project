@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
     session_start();
 
     $id = $_GET["id"];
@@ -24,7 +24,7 @@
         	 query("DELETE FROM temple_no_need where temple_id = '$templeId'");
     
     
-    echo "<script>alert('delete successfully!');</script>";
-    echo "<script>location.href='../UserAdmin.php'</script>";
-
+    echo "<script>alert('ลบผู้ใช้เรียบร้อย!');</script>";
+    echo "<script>location.href='../index.php'</script>";
+    
 ?>

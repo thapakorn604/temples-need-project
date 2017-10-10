@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0); 
     session_start();
 
     if($_SESSION["login_user"] === null) {
@@ -101,7 +101,7 @@
 
         function editTemple(id) {
 
-            location.href='./editTemple.php?id='+id;
+            location.href='./EditTemple.php?id='+id;
 
         }
 

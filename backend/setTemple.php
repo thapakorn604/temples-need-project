@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
     session_start();
 
     $templeName = $_POST["nameTemple"];
@@ -11,8 +11,9 @@
     $noitem1 = $_POST["noitem1"];
     // $noitem2 = $_POST["noitem2"];
 
-    
     $image_name = $_FILES["image"]["name"];
+
+
     $target_dir = "../uploads/";
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
     $uploadOk = 1;
@@ -24,39 +25,41 @@
             echo "File is an image - " . $check["mime"] . ".";
             $uploadOk = 1;
         } else {
-            echo "File is not an image.";
+            echo "ไฟล์ที่อัพโหลดไม่ใช่ไฟล์รูปภาพ";
+            echo "<script>location.href='../index.php'</script>";
+            
             $uploadOk = 0;
         }
     }
     // Check if file already exists
     if (file_exists($target_file)) {
         echo "<script>alert('ไฟล์นี้มีผู้เคยอัพโหลดแล้ว');</script>";
-        echo "<script>location.href='../AddTemple.php'</script>";
+        echo "<script>location.href='../index.php'</script>";
         $uploadOk = 0;
     }
     // Check file size
     if ($_FILES["image"]["size"] > 500000) {
          echo "<script>alert('ไฟล์มีขนาดใหญ่เกินไป (ต้องไม่เกิน 5MB)');</script>";
-         echo "<script>location.href='../AddTemple.php'</script>";
+         echo "<script>location.href='../index.php'</script>";         
         $uploadOk = 0;
     }
     // Allow certain file formats
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
     && $imageFileType != "gif" ) {
          echo "<script>alert('ไฟล์ที่อัพต้องเป็นไฟล์รูปเท่านั้น (นามสกุลไฟล์ .jpg, .png ,.gif)');</script>";
-        echo "<script>location.href='../AddTemple.php'</script>";
+         echo "<script>location.href='../index.php'</script>";         
         $uploadOk = 0;
     }
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
         echo "<script>alert('ไม่สามารถอัพโหลดไฟล์ได้');</script>";
-        echo "<script>location.href='../AddTemple.php'</script>";
+        echo "<script>location.href='../index.php'</script>";        
     // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
         } else {
-            echo "<script>alert('มีบางอย่างผิดพลาดขณะอัพโหลดไฟล์');</script>";
-            echo "<script>location.href='../AddTemple.php'</script>";
+            echo "<script>location.href='../index.php'</script>";
+            
         }
 
 
@@ -87,15 +90,17 @@
                                     VALUES ('', $user_id, '$TempleId')");
 
 			echo "<script>alert('เพิ่มวัดสำเร็จ!');</script>";
-      echo "<script>location.href='../User.php'</script>";
+            echo "<script>location.href='../index.php'</script>";
 
 	} else {
 		echo "<script>alert('ชื่อวัดนี้มีผู้ใช้แล้ว');</script>";
-    echo "<script>location.href='../AddTemple.php'</script>";
+        echo "<script>location.href='../index.php'</script>";
+        
 	}
 
   echo "<script>alert('รูปมีขนาดใหญ่เกินไป หรือ ไฟล์ที่อัพโหลดไม่ใช่รูปภาพ');</script>";
-  echo "<script>location.href='../AddTemple.php'</script>";
+  echo "<script>location.href='../index.php'</script>";
+  
 }
 
 ?>

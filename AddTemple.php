@@ -99,7 +99,7 @@
 
                         <div class="form-group">
                             <label for="email">รูปภาพ:</label>
-                            <input class="form-control" type="file"  accept="image/tiff,image/jpeg,image/gif,image/x-png,image/x-MS-bmp "class="btn btn-default" id="image" name="image">
+                            <input class="form-control" type="file"  accept="image/tiff,image/jpeg,image/gif,image/x-png,image/x-MS-bmp "class="btn btn-default" id="image" name="image" placeholder =""required>
                             <p>ชื่อไฟล์ภาพต้องเป็น ภาษาอังกฤษ หรือ ตัวเลขเท่านั้น </p>
                         </div>
 

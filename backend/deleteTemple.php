@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0); 
     session_start();
 
     $id = $_GET["id"];
@@ -26,13 +26,13 @@
     $delete4 = $mysqli->
         	 query("DELETE FROM temple_no_need where temple_id = '$id'");
 
-    echo "<script>alert('delete successfully!');</script>";
+    echo "<script>alert('ลบวัดเรียบร้อย!');</script>";
 
     if($_SESSION["login_user_role"] == 'admin'){
 
-        echo "<script>location.href='../TempleAdmin.php'</script>";
+        echo "<script>location.href='../index.php'</script>";
     } else {
-        echo "<script>location.href='../User.php'</script>";
+        echo "<script>location.href='../index.php'</script>";
     }
 
 ?>

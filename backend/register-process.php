@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 	$s_username = $_POST["username"];
 	$s_password = $_POST["password"];
 	$s_repassword = $_POST["repassword"];
