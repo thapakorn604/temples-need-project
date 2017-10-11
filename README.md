@@ -19,6 +19,7 @@ Instruction
 Notice
   You can goes as Admin with username : admin and password : 1234
   For Monk's role you have to use username : monk and password : 1234
+  Uploaded photos provided in /uploads, please re-check that you allow users to interact with otherwise, this application won't work with image upload features.
   
 
 Thank you
