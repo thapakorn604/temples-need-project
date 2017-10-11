@@ -3,7 +3,7 @@ project for find exactly items which each temples needed to donate.
 
 This project is developed by HTML,CSS,Bootstrap,JavaScript,PHP,mySQL.
 
-Getting start with temples-need
+# Getting start with temples-need
 
 Ensure that you have...
 
@@ -13,7 +13,7 @@ Ensure that you have...
   
   3.phpMyAdmin
   
-Instruction
+  # Instruction
 
   ->Start your mySQL sever and run phpMyAdmin as your localhost
   
@@ -24,15 +24,16 @@ Instruction
   ->Goes to xampp/htdocs (or opt/lampp/htdocs for linux and any UNIX based OS) and move project floder to there.
   
   ->Run this application by using 'localhost:portnumber' as your url or ip address of your xampp
+
+# Notice
+
+  #You can goes as Admin with username : admin and password : 1234
   
-Notice
-  You can goes as Admin with username : admin and password : 1234
+  #For Monk's role you have to use username : monk and password : 1234
   
-  For Monk's role you have to use username : monk and password : 1234
+  #Uploaded photos provided in /uploads, please re-check that you allow users to interact with otherwise, this application won't work with image upload features.
   
-  Uploaded photos provided in /uploads, please re-check that you allow users to interact with otherwise, this application won't work with image upload features.
-  
-  'temples.sql' provided in /database floder.
+  #'temples.sql' provided in /database floder.
   
 
 Thank you
